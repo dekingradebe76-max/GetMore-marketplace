@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>HLUBI — Buy • Sell • Grow</title>
+  <meta name="description" content="HLUBI is a simple marketplace where buyers and sellers meet.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#home" aria-label="HLUBI home">
+    <span class="burst-logo" aria-hidden="true">
+      <span>📱</span><span>👟</span><span>🎧</span><span>⌚</span><span>👜</span><span>📷</span><span>💄</span>
+    </span>
+    <span><b>HLUBI</b><small>Buy • Sell • Grow</small></span>
+  </a>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#seller">Become a Seller</a>
+    <a href="#how">How It Works</a>
+    <a href="#admin">Owner Review</a>
+  </nav>
+  <button class="cart-btn" onclick="openCart()">🛒 Cart <span id="cartCount">0</span></button>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">WELCOME TO HLUBI</p>
+      <h1>Buy. Sell. <span>Grow.</span></h1>
+      <p>A simple marketplace where local sellers can showcase products and customers can shop online.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#products">Shop Now</a>
+        <a class="btn secondary" href="#seller">Become a Seller</a>
+      </div>
+      <p class="small-note">Test marketplace • PayPal-ready checkout</p>
+    </div>
+    <div class="hero-art">
+      <div class="firework">📱 &nbsp; 👟 &nbsp; 🎧<br>⌚ &nbsp; 💄 &nbsp; 👜<br>📷</div>
+      <div class="rocket">🚀</div>
+    </div>
+  </section>
+
+  <section class="section" id="products">
+    <div class="section-head">
+      <div><p class="eyebrow">SHOP</p><h2>Featured Products</h2></div>
+      <select id="categoryFilter" onchange="renderProducts()">
+        <option value="all">All categories</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Fashion">Fashion</option>
+        <option value="Home">Home & Living</option>
+        <option value="Beauty">Beauty</option>
+        <option value="Sports">Sports</option>
+      </select>
+    </div>
+    <div id="productGrid" class="product-grid"></div>
+  </section>
+
+  <section class="seller-section" id="seller">
+    <div>
+      <p class="eyebrow">SELL ON HLUBI</p>
+      <h2>Have a product to sell?</h2>
+      <p>Apply to become a HLUBI seller for free during our test period. Your seller account and first product must be reviewed by the owner before they can appear on the marketplace.</p>
+    </div>
+    <form id="sellerForm" class="seller-form" onsubmit="submitSeller(event)">
+      <input id="sellerName" required placeholder="Your name / business name">
+      <input id="sellerEmail" type="email" required placeholder="Email address">
+      <input id="sellerPhone" required placeholder="WhatsApp / phone">
+      <input id="sellerProduct" required placeholder="Product name you want to sell">
+      <input id="sellerPrice" type="number" min="1" step="0.01" required placeholder="Product price in rand (R)">
+      <select id="sellerCategory" required aria-label="Product category">
+        <option value="">Choose product category</option>
+        <option>Electronics</option><option>Fashion</option><option>Home</option><option>Beauty</option><option>Sports</option><option>Other</option>
+      </select>
+      <button class="btn primary" type="submit">Apply to Sell — Free</button>
+      <p id="sellerMessage" class="success"></p>
+    </form>
+  </section>
+
+  <section class="section owner-section" id="admin">
+    <div class="section-head"><div><p class="eyebrow">OWNER AREA · TEST MODE</p><h2>Seller & Product Review</h2><p class="admin-warning">Demo only: this review panel and its records are stored in this browser. It is not protected by a secure login and is not suitable for real seller data yet.</p></div><button class="btn secondary admin-refresh" type="button" onclick="renderAdmin()">Refresh</button></div>
+    <div class="admin-columns">
+      <div class="admin-card"><h3>Seller applications</h3><p class="muted">Approve a seller before their product can be published.</p><div id="sellerQueue"></div></div>
+      <div class="admin-card"><h3>Product approvals</h3><p class="muted">Review each product separately before it appears in the shop.</p><div id="productQueue"></div></div>
+    </div>
+    <button class="btn reset-demo" type="button" onclick="clearDemoApplications()">Clear test applications</button>
+  </section>
+
+  <section class="section how" id="how">
+    <p class="eyebrow center">SIMPLE PROCESS</p>
+    <h2 class="center">How HLUBI Works</h2>
+    <div class="steps">
+      <div><b>1</b><h3>Create an account</h3><p>Buyers and sellers register their details.</p></div>
+      <div><b>2</b><h3>List or browse</h3><p>Sellers list products and buyers browse.</p></div>
+      <div><b>3</b><h3>Pay with PayPal</h3><p>Checkout can use PayPal once your PayPal client ID is added.</p></div>
+      <div><b>4</b><h3>Deliver</h3><p>The seller arranges delivery or collection.</p></div>
+    </div>
+  </section>
+
+  <section class="seller-cta">
+    <div><h2>More sellers. More products. More opportunities.</h2><p>Let's test whether customers and sellers want HLUBI.</p></div>
+    <a class="btn primary" href="#seller">Join HLUBI</a>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-brand"><b>HLUBI</b><span>Buy • Sell • Grow</span></div>
+  <div><strong>Marketplace</strong><a href="#products">Products</a><a href="#seller">Sell on HLUBI</a><a href="#how">How it works</a></div>
+  <div><strong>Payments</strong><span>PayPal-ready</span><span>Secure checkout</span></div>
+  <div><strong>Contact</strong><span>WhatsApp support</span><span>South Africa</span></div>
+  <p class="copyright">© 2026 HLUBI. Test marketplace version.</p>
+</footer>
+
+<div id="cartModal" class="modal hidden" onclick="closeCart(event)">
+  <div class="modal-card" onclick="event.stopPropagation()">
+    <button class="close" onclick="closeCart()">×</button>
+    <h2>Your Cart</h2>
+    <div id="cartItems"></div>
+    <div class="cart-total"><span>Total</span><strong id="cartTotal">R0.00</strong></div>
+    <div id="paypal-button-container"></div>
+    <p class="pay-note">PayPal is ready for connection. Add your PayPal Client ID in <code>app.js</code> to enable live/sandbox checkout.</p>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
