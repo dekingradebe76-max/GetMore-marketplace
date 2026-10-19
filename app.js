@@ -14,7 +14,7 @@ async function testSupabaseConnection() {
   if (response.ok) {
   alert("Supabase connected!");
   } else {
-    console.error("Supabase error:", await response.text());
+    alert("Supabase error: " + await response.text());
   }
 }testSupabaseConnection();
 const products = [
