@@ -1,4 +1,3 @@
-connection code
 https://vrihiynknoixqjtbvsqi.supabase.co/rest/v1/
 sb_publishable_QLh4y-e7UpLwHW6cuRS_pQ_nIaLGtDe
 const products = [
