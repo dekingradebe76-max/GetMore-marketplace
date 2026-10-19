@@ -1,5 +1,22 @@
 https://vrihiynknoixqjtbvsqi.supabase.co/rest/v1/
 sb_publishable_QLh4y-e7UpLwHW6cuRS_pQ_nIaLGtDe
+async function testSupabaseConnection() {
+  const response = await fetch(
+    `${SUPABASE_URL}/rest/v1/seller_application?select=id`,
+    {
+      headers: {
+        apikey: SUPABASE_KEY,
+        Authorization: `Bearer ${SUPABASE_KEY}`
+      }
+    }
+  );
+
+  if (response.ok) {
+    console.log("Supabase connected!");
+  } else {
+    console.error("Supabase error:", await response.text());
+  }
+}
 const products = [
   {id:1,name:"Smartphone",category:"Electronics",price:2499,icon:"📱"},
   {id:2,name:"Running Sneakers",category:"Fashion",price:899,icon:"👟"},
