@@ -1,3 +1,6 @@
+connection code
+https://vrihiynknoixqjtbvsqi.supabase.co/rest/v1/
+sb_publishable_QLh4y-e7UpLwHW6cuRS_pQ_nIaLGtDe
 const products = [
   {id:1,name:"Smartphone",category:"Electronics",price:2499,icon:"📱"},
   {id:2,name:"Running Sneakers",category:"Fashion",price:899,icon:"👟"},
