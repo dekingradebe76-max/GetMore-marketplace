@@ -16,7 +16,7 @@ async function testSupabaseConnection() {
   } else {
     console.error("Supabase error:", await response.text());
   }
-}
+}testSupabaseConnection();
 const products = [
   {id:1,name:"Smartphone",category:"Electronics",price:2499,icon:"📱"},
   {id:2,name:"Running Sneakers",category:"Fashion",price:899,icon:"👟"},
