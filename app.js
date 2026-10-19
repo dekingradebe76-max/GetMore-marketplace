@@ -12,7 +12,7 @@ async function testSupabaseConnection() {
   );
 
   if (response.ok) {
-    console.log("Supabase connected!");
+  alert("Supabase connected!");
   } else {
     console.error("Supabase error:", await response.text());
   }
