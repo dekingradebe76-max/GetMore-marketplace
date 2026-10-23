@@ -1,5 +1,5 @@
-https://vrihiynknoixqjtbvsqi.supabase.co/rest/v1/
-sb_publishable_QLh4y-e7UpLwHW6cuRS_pQ_nIaLGtDe
+const SUPABASE_URL = "https://vrihiynknoixqi.supabase.co
+const SUPABASE_KEY = "sb_publishable_QLh4y-e7UpLwHW6cuRS_pQ_nIaLGtDe
 async function testSupabaseConnection() {
   const response = await fetch(
     `${SUPABASE_URL}/rest/v1/seller_application?select=id`,
