@@ -28,12 +28,12 @@ const products = [
   {id:8,name:"Football & Bottle Set",category:"Sports",price:499,icon:"⚽"}
 ];
 
-let cart = JSON.parse(localStorage.getItem("hlubiCart") || "[]");
+let cart = JSON.parse(localStorage.getItem("getmoreCart") || "[]");
 const demoProducts = products.map(p => ({...p, approved: true, demo: true}));
 function readList(key){ try { return JSON.parse(localStorage.getItem(key) || "[]"); } catch { return []; } }
 function writeList(key,value){ localStorage.setItem(key,JSON.stringify(value)); }
-let sellerApplications = readList("hlubiSellers");
-let submittedProducts = readList("hlubiSubmittedProducts");
+let sellerApplications = readList("getmoreSellers");
+let submittedProducts = readList("getmoreSubmittedProducts");
 
 function money(n){ return "R" + n.toLocaleString("en-ZA",{minimumFractionDigits:2,maximumFractionDigits:2}); }
 
@@ -62,7 +62,7 @@ function addToCart(id){
   openCart();
 }
 
-function saveCart(){localStorage.setItem("hlubiCart",JSON.stringify(cart));}
+function saveCart(){localStorage.setItem("getmoreCart",JSON.stringify(cart));}
 
 function updateCartCount(){
   document.getElementById("cartCount").textContent = cart.reduce((s,x)=>s+x.qty,0);
