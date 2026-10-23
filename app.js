@@ -39,7 +39,7 @@ function money(n){ return "R" + n.toLocaleString("en-ZA",{minimumFractionDigits:
 
 function renderProducts(){
   const filter = document.getElementById("categoryFilter").value;
-  const visibleProducts = [...demoProducts, ...submittedProducts.filter(p=>p.status==="approved")];
+ const visibleProducts = demoProducts.filter(p => !p.status || p.status === "approved"); 
   const list = filter==="all" ? visibleProducts : visibleProducts.filter(p=>p.category===filter);
   document.getElementById("productGrid").innerHTML = list.map(p=>`
     <article class="product">
