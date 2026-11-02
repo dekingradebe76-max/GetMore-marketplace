@@ -37,7 +37,7 @@ let submittedProducts = readList("getmoreSubmittedProducts");
 
 function money(n){ return "R" + n.toLocaleString("en-ZA",{minimumFractionDigits:2,maximumFractionDigits:2}); }
 
-function renderProducts(){
+let filter = "all";function renderProducts(){
   const filter = document.getElementById("categoryFilter").value;
 const visibleProducts = demoProducts;  
   const list = filter==="all" ? visibleProducts : visibleProducts.filter(p=>p.category===filter);
